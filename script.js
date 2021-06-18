@@ -12,13 +12,13 @@ window.addEventListener("load", function() {
             div.innerHTML = `
             <h2>Mission Destination</h2>
              <ol>
-                <li>Name: ${json.name[5]}</li>
-                <li>Diameter: ${json.diameter[5]}</li>
-                <li>Star: ${json.star[5]}</li>
-                <li>Distance from Earth: ${json.distanceFromEarth[5]}</li>
-                <li>Number of Moons: ${json.numberOfMoons[5]}</li>
+                <li>Name: ${json.name}</li>
+                <li>Diameter: ${json.diameter}</li>
+                <li>Star: ${json.star}</li>
+                <li>Distance from Earth: ${json.distanceFromEarth}</li>
+                <li>Number of Moons: ${json.numberOfMoons}</li>
              </ol>
-             <img src="${json.image[5]}">
+             <img src="${json.image}">
                `;
          });
       });
@@ -35,6 +35,10 @@ window.addEventListener("load", function() {
 
       console.log(pilotNameInput.value);
       console.log(typeof(fuelLevelInput.value));
+
+      document.getElementById("pilotStatus").innerHTML = `${pilotNameInput.value} Ready`;
+      document.getElementById("copilotStatus").innerHTML = `${copilotNameInput.value} Ready`;
+
 
       if (pilotNameInput.value === "" || copilotNameInput.value === "" || !isNaN(pilotNameInput.value) || !isNaN(copilotNameInput.value)) {
          alert("All fields are required!");
@@ -60,10 +64,7 @@ window.addEventListener("load", function() {
    }); 
 });
 
-document.getElementById("pilotStatus").innerHTML = `${pilotNameInput.value} Ready`;
-document.getElementById("copilotStatus").innerHTML = `${copilotNameInput.value} Ready`;
 
-   
 // /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 // <h2>Mission Destination</h2>
 // <ol>
