@@ -5,6 +5,26 @@
 // });
 
 window.addEventListener("load", function() {
+   fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+      response.json().then( function(json) {
+         const div = document.getElementById("missionTarget");
+            
+            div.innerHTML = `
+            <h2>Mission Destination</h2>
+             <ol>
+                <li>Name: ${json.name[5]}</li>
+                <li>Diameter: ${json.diameter[5]}</li>
+                <li>Star: ${json.star[5]}</li>
+                <li>Distance from Earth: ${json.distanceFromEarth[5]}</li>
+                <li>Number of Moons: ${json.numberOfMoons[5]}</li>
+             </ol>
+             <img src="${json.image[5]}">
+               `;
+         });
+      });
+   
+  
+   
    let form = document.querySelector("form");
    form.addEventListener("submit", function(event) {
       event.preventDefault();
@@ -22,18 +42,28 @@ window.addEventListener("load", function() {
       if (isNaN(fuelLevelInput.value) || isNaN(cargoMassInput.value) || fuelLevelInput.value === "" || cargoMassInput.value === "") {
          alert("All fields are required!");
       }
-      
-
-      // Number.isNaN = Number.isNaN || function isNaN(input) {
-      //    return typeof input === 'number' && input !== input;
-   //   }
-      
+      if (fuelLevelInput.value < 10000) {
+         document.getElementById("faultyItems").style.visibility = "visible";
+         document.getElementById("fuelStatus").innerHTML = "There is not enough fuel for the journey";
+         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+         document.getElementById("launchStatusCheck").style.color = "red";
+      }
+      if (cargoMassInput.value > 10000) {
+         document.getElementById("faultyItems").style.visibility = "visible";
+         document.getElementById("cargoStatus").innerHTML = "There is too much mass for the shuttle to take off";
+         document.getElementById("launchStatus").innerHTML = "Shuttle not ready for launch";
+         document.getElementById("launchStatusCheck").style.color = "red";
+      }else{
+         document.getElementById("launchStatus").innerHTML = "Shuttle is ready for launch";
+         document.getElementById("launchStatusCheck").style.color = "green";
+      }
    }); 
-      
-   });
+});
 
+document.getElementById("pilotStatus").innerHTML = `${pilotNameInput.value} Ready`;
+document.getElementById("copilotStatus").innerHTML = `${copilotNameInput.value} Ready`;
 
-
+   
 // /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 // <h2>Mission Destination</h2>
 // <ol>
