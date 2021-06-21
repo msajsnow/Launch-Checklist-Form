@@ -22,8 +22,8 @@ window.addEventListener("load", function() {
          //     <li>Name: ${json[5].name}</li>
          //     <li>Diameter: ${json[5].diameter}</li>
          //     <li>Star: ${json[5].star}</li>
-         //     <li>Distance from Earth: ${json[5].distanceFromEarth}</li>
-         //     <li>Number of Moons: ${json[5].numberOfMoons}</li>
+         //     <li>Distance from Earth: ${json[5].distance}</li>
+         //     <li>Number of Moons: ${json[5].moons}</li>
          //  </ol>
          //  <img src="${json[5].image}">
          //    `;
