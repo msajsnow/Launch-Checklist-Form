@@ -34,8 +34,8 @@ window.addEventListener("load", function() {
              <li>Name: ${json[index].name}</li>
              <li>Diameter: ${json[index].diameter}</li>
              <li>Star: ${json[index].star}</li>
-             <li>Distance from Earth: ${json[index].distanceFromEarth}</li>
-             <li>Number of Moons: ${json[index].numberOfMoons}</li>
+             <li>Distance from Earth: ${json[index].distance}</li>
+             <li>Number of Moons: ${json[index].moons}</li>
           </ol>
           <img src="${json[index].image}">
             `;
